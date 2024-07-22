@@ -12,7 +12,6 @@ const project = {
 
 Router.post('/addUser', async function (req, res) {
     const userExist = await db.users.findOne({ email: req.body.email.toLowerCase() })
-    console.log('userExist',userExist);
     if (userExist) {
         res.statusMessage = "Email already exist";
         return res.status(409).end();
